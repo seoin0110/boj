@@ -40,11 +40,11 @@ int main() {
             b = base + b - 1;
             c = base + c - 1;
             while (b <= c) {
-                if (b % 2 == 1) {
+                if ((b % 2) == 1) {
                     sum += seg[b];
                     b++;
                 }
-                if (c % 2 == 0) {
+                if ((c % 2) == 0) {
                     sum += seg[c];
                     c--;
                 }
