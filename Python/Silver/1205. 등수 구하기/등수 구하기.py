@@ -9,6 +9,7 @@ while idx<a and arr[idx] >= b:
         flag = 1
         start_idx = idx
     idx+=1
+
 if idx >= c:
     print(-1)
 elif start_idx >= 0:
