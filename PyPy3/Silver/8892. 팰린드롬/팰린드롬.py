@@ -18,21 +18,16 @@ for n in range(N):
          arr.append(input())
  
      for i, word1 in enumerate(arr):
-         reverse_word=reverse(word1)
          for j, word2 in enumerate(arr):
              if i!=j:
-                 if reverse_word==word2[:len(word1)]:
-                     remainder=word2[len(word1):]
-                     if ispal(remainder):
-                         answer.append(word2+word1)
-                         find=1
-                         break
-                 if reverse_word==word2[-1 * len(word1):]:
-                     remainder = word2[:-1 * len(word1)]
-                     if ispal(remainder):
-                         answer.append(word1+word2)
-                         find=1
-                         break
+                 if ispal(word1+word2):
+                     answer.append(word1+word2)
+                     find=1
+                     break
+                 if ispal(word2+word1):
+                     answer.append(word2+word1)
+                     find=1
+                     break
          if find==1:
              break
      if find==0:
