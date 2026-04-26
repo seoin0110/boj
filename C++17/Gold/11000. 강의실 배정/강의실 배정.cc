@@ -8,33 +8,53 @@
 #include <stack>
 #include <queue>
 #include <deque>
-#include <map>
-#include <set>
-#include <cstring>
-#define ll long long
 using namespace std;
-ll n, s, e, ans, ret=0;
-vector<ll> arr;
-bool cmp(ll a, ll b) {
-	if (a * a == b * b)
-		return a < b;
-	return a * a < b* b;
-}
-int main(void) {
-	ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+using ll = long long;
 
+//강의실배정
+
+struct cmp {
+	bool operator()(pair<ll, ll> x, pair<ll, ll> y) {
+		if (x.first != y.first) {
+			return x.first > y.first;
+		}
+		return x.second > y.second;
+	}
+};
+
+int main() {
+	ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+
+	int n,m;
+	int sum = 0;
 	cin >> n;
-	for (int i = 0; i < n; i++) {
-		cin >> s >> e;
-		arr.emplace_back(s);
-		arr.emplace_back(-e);
+	priority_queue<pair<ll,ll>,vector<pair<ll,ll>>,cmp>pq;
+	priority_queue<ll,vector<ll>,greater<>>pq2;
+	m = n-1;
+	while (n--) {
+		int a, b;
+		cin >> a >> b;
+		pq.push({ a,b });
 	}
-	sort(arr.begin(), arr.end(), cmp);
-	for (int i = 0; i < n * 2; i++) {
-		if (arr[i] >= 0) ret++;
-		else ret--;
-		ans = max(ans, ret);
+
+	sum++;
+	pq2.push(pq.top().second);
+	pq.pop();
+	while (m--) {
+		pair<ll, ll> temp = pq.top();
+		pq.pop();
+		int ti = pq2.size();
+		if (pq2.top() <= temp.first)
+		{
+			pq2.pop();
+			pq2.push(temp.second);
+		}
+		else
+		{
+			sum++;
+			pq2.push(temp.second);
+		}
 	}
-	cout << ans << '\n';
-	return 0;
+	cout << sum << '\n';
+
 }
