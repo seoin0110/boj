@@ -13,7 +13,8 @@ public class Main {
         long m = Integer.parseInt(st.nextToken());
         long [] array = new long[(int)n];
         for (int i = 0; i < n;i++){
-            array[i] = Integer.parseInt(br.readLine());
+            st = new StringTokenizer(br.readLine());
+            array[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(array);
         int left = 0;
