@@ -14,6 +14,47 @@
 using ll = long long;
 using namespace std;
 #define inf 1000000007
+/*
+ll func(ll n, ll k) {
+    if (n - k < k)
+        k = n - k;
+    ll i = 0;
+    ll ans = 1;
+    while (i < k) {
+        ans = (ans * n)%inf;
+        n--;
+        i++;
+    }
+    i = 0;
+    while (k) {
+        ans = (ans /k) % inf;
+        k--;
+    }
+
+    return ans;
+}
+
+int main() {
+    cin.tie(0), cout.tie(0);
+    ios_base::sync_with_stdio(0);
+    
+
+    ll n, m;
+    cin >> n;
+    cin >> m;
+    ll k = 0;
+    ll ans = 0;
+    for (ll i = 0;i <= n;i += m) {
+        k = (i / m);
+
+        ans += func(n - i + k, k) % inf;
+
+    }
+
+    cout << ans % inf<< '\n';
+    return 0;
+}*/
+
 
 ll v[201][201];
 
