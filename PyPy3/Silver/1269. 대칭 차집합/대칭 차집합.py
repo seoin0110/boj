@@ -1,0 +1,7 @@
+a,b = input().split()
+c = input().split()
+d = input().split()
+c = set(c)
+d = set(d)
+c.intersection(d)
+print(len(c) + len(d) -2*len(c & d))
