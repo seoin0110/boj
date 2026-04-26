@@ -16,11 +16,14 @@
 using namespace std;
 ll inf = 1e9 + 7;
 
+
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
+    
 
     ll n, l;
+    ll start = 1;
     cin >> n >> l;
     vector<ld>v(n);
     vector<pair<ld, ld> >q;
