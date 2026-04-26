@@ -58,12 +58,12 @@ int main() {
 	while (!q.empty()) {
 		ll tmp = q.front();
 		q.pop();
-		for (auto nxt : v[tmp]) {
-			if (check[nxt] == 1)
+		for (ll i = 0; i < v[tmp].size();i++) {
+			if (check[v[tmp][i]] == 1)
 				continue;
-			check[nxt] = 1;
-			par[nxt] = tmp;
-			q.push(nxt);
+			check[v[tmp][i]] = 1;
+			par[v[tmp][i]] = tmp;
+			q.push(v[tmp][i]);
 		}
 		check[tmp] = 1;
 	}
